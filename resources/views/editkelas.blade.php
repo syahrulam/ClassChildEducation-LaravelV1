@@ -31,8 +31,12 @@ Dashboard
                                 </div>
                                 <div class="form-group">
                                     <label for="users_id">Nama Wali</label>
-                                    <input type="text" required="required" class="form-control" name="users_id"
-                                        value="{{ $p->users_id }}">
+                                    <select class="form-control select choose" name="users_id" id="users_id">
+                                        <option value=""> -- Pilih Wali -- </option>
+                                        @foreach ($pilihWali as $a)
+                                        <option value="{{ $a->id }}"> {{ $a->name }} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12" style="text-align  : right !important;">

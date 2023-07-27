@@ -58,7 +58,15 @@ Dashboard
                                                             <td>{{ $a->nip }}</td>
                                                             <td>{{ $a->name }}</td>
                                                             <td>{{ $a->email }}</td>
-                                                            <td>{{ $a->admin_akses }}</td>
+                                                            <td>
+                                                                @if($a->admin_akses == 0)
+                                                                    Guru
+                                                                @elseif($a->admin_akses == 1)
+                                                                    Admin
+                                                                @else
+                                                                    Unknown
+                                                                @endif
+                                                            </td>
                                                             <td>
                                                                 <a href="/guru/{{ $a->id }}/edit-guru"
                                                                     class="btn btn-outline-warning btn-sm">Edit</a>

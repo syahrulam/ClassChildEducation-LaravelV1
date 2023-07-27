@@ -30,8 +30,10 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 
 Auth::routes();
 
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile')->middleware('auth');
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('auth');
     Route::get('/kategori-game', [MonitorController::class, 'kategorigame'])->name('kategori-game')->middleware('auth');
+    Route::get('export-to-excel', [MonitorController::class, 'exportToExcel'])->name('export.excel');
     Route::get('/monitor-siswa', [MonitorController::class, 'index'])->name('monitor-siswa')->middleware('auth');
     Route::post('/filter-name', [MonitorController::class, 'filter_name'])->name('filter-name')->middleware('auth');
 

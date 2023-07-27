@@ -58,13 +58,13 @@ Dashboard
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <a class="text-dark">Kelas<a class='red'> *</a></a>
-                                        <div class="input-group">
-                                            <select class="form-control select choose" name="kelas_id" id="kelas_id">
-                                                <option value=""> -- Pilih Kelas -- </option>
-                                                <option value="1">B</option>
-                                            </select>
-                                        </div>
+                                        <label for="kelas_id">Kelas</label>
+                                        <select class="form-control" name="kelas_id" required>
+                                            <option value="" selected disabled>Pilih Kelas</option>
+                                            @foreach ($kelas as $kelas)
+                                                <option value="{{ $kelas->id }}">{{ $kelas->namakelas }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

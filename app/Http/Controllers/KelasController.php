@@ -59,11 +59,12 @@ class KelasController extends Controller
     public function editkelas($id)
     {
         $siswa = Kelas::with('siswaa')->paginate();
-
+        $pilihWali = \App\Models\User::all();
         $kelas = DB::table('kelas')->where('id',$id)->get();
         $return = [
             'siswa',
             'kelas',
+            'pilihWali',
         ];
         return view('editkelas', compact($return));
     }

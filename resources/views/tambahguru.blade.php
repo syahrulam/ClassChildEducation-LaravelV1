@@ -35,8 +35,8 @@ Dashboard
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <a class="text-dark">NIP<a class='red'> *</a></a>
-                                        <input class="form-control input-bb" type="text" name="nip" id="nip"
-                                            value="{{ old('nip') }}" />
+                                        <input class="form-control input-bb" type="text" name="nip" id="nip" value="{{ old('nip') }}" />
+                                            <span style="color:red" id="nipError"></span>
                                         <span style="color:red">
                                             @error('nip')
                                                 {{ $message }}
@@ -48,7 +48,7 @@ Dashboard
                                     <div class="form-group">
                                         <a class="text-dark">Nama Guru<a class='red'> *</a></a>
                                         <input class="form-control input-bb" type="text" name="name" id="name"
-                                            value="{{ old('name') }}" />
+                                            value="{{ old('name') }}" /><span style="color:red" id="nameError"></span>
                                         <span style="color:red">
                                             @error('name')
                                                 {{ $message }}
@@ -117,6 +117,39 @@ Dashboard
     var dt = new Date();
     document.getElementById("date").innerHTML = dt.toLocaleDateString('en-UK');
 
+
+    // Validasi input hanya 11 angka
+    var nipInput = document.getElementById('nip');
+
+    nipInput.addEventListener('input', function () {
+        var value = this.value.trim();
+        var isValid = /^[0-9]{0,11}$/.test(value); // Validasi hanya 11 angka atau kurang
+
+        if (!isValid) {
+            document.getElementById('nipError').textContent = 'Harap masukkan tepat 11 angka.';
+            this.value = value.replace(/[^0-9]/g, ''); // Menghapus karakter selain angka
+            if (this.value.length > 11) {
+                this.value = this.value.slice(0, 11); // Mengambil hanya 11 angka pertama jika lebih dari itu
+            }
+        } else {
+            document.getElementById('nipError').textContent = '';
+        }
+    });
+
+        // Validasi input hanya huruf
+        var nameInput = document.getElementById('name');
+
+        nameInput.addEventListener('input', function () {
+            var value = this.value.trim();
+            var isValid = /^[A-Za-z]+$/.test(value);
+
+            if (!isValid) {
+                document.getElementById('nameError').textContent = 'Hanya huruf yang diperbolehkan.';
+                this.value = value.replace(/[^A-Za-z]/g, ''); // Menghapus karakter selain huruf
+            } else {
+                document.getElementById('nameError').textContent = '';
+            }
+        });
 </script>
 @endsection
 @endsection

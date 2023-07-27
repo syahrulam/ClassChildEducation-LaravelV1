@@ -23,10 +23,12 @@ Dashboard
                 <div class="card">
                     <div class="card-header">
                         <h4>Data Nilai</h4>
+                        {{-- <a href="{{ route('export.excel') }}" class="btn btn-success">Export to Excel</a> --}}
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
+                              <div class="table-responsive">
                                 <table id="table-2" class="table table-striped">
                                     <thead>
                                         <tr role="row">
@@ -35,6 +37,7 @@ Dashboard
                                             <th>Nama Siswa</th>
                                             <th>Kategori Game</th>
                                             <th>Nilai</th>
+                                            <th>Dari Jumlah Soal</th>
                                             <th>Dibuat</th>
                                         </tr>
                                     </thead>
@@ -47,12 +50,14 @@ Dashboard
                                             <td>{{$siswa->namasiswa}}</td>
                                             <td>{{$game->kategorigame}}</td>
                                             <td>{{$game->pivot->nilai}}</td>
+                                            <td>{{$game->jumlahsoal}}</td>
                                             <td>{{$game->pivot->created_at}}</td>
-                                        </tr>
+                                        </tr>                                        
                                         @endforeach
                                         @endforeach
                                     </tbody>
                                 </table>
+                              </div>  
                             </div>
                         </div>
                     </div>

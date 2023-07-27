@@ -38,7 +38,7 @@ class SiswaController extends Controller
 
     public function tambahsiswa()
     {
-        $kelas = Siswa::with('kelas')->paginate();
+        $kelas = Kelas::all(); 
 
         $return = [
             'kelas',
@@ -76,7 +76,7 @@ class SiswaController extends Controller
 
     public function editsiswa($id)
     {
-        $kelas = Siswa::with('kelas')->paginate();
+        $kelas = Kelas::all(); 
 
         $siswa = DB::table('siswa')->where('id',$id)->get();
         $return = [

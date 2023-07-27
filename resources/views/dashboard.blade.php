@@ -25,7 +25,8 @@ Dashboard
                       <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                              <a href="{{ route('monitor-siswa') }}" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Monitor Siswa</a> </div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                             {{ $nilai }}
+                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                       </div>
                   </div>
               </div>

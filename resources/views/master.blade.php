@@ -64,6 +64,7 @@
 
     <script src="{{ asset('admin/assets/js/page/modules-datatables.js')}}"></script>
     <script src="{{ url('Scripts/sweetalert.min.js') }}"></script>
+    
 
     @yield('scripts')
 </body>

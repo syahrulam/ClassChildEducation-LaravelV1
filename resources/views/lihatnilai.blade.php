@@ -21,6 +21,7 @@ Dashboard
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
+                          <div class="table-responsive">
                             <div class="col-sm-12">
                                 <table id="table-2" class="table table-striped">
                                     <thead>
@@ -48,6 +49,7 @@ Dashboard
                                         @endforeach
                                     </tbody>
                                 </table>
+                              </div>
                             </div>
                         </div>
                     </div>

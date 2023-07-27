@@ -54,7 +54,7 @@ Dashboard
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$kelas->namakelas}}</td>  
-                                                        <td>{{ $siswa }}</td>
+                                                        <td>{{ \App\Models\Siswa::where('kelas_id', $kelas->id)->count() }}</td>
                                                         <td>{{$kelas->users->name}}</td> 
                                                         <td>
                                                             <a href="/kelas/{{ $kelas->id }}/edit-kelas"

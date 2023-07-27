@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Game;
 use App\Models\Siswa;
+use App\Exports\DataNilaiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MonitorController extends Controller
 {
@@ -31,5 +33,9 @@ class MonitorController extends Controller
             'vargame',
         ];
         return view('kategorigame', compact($return));
+    }
+    public function exportToExcel()
+    {
+        return Excel::download(new DataNilaiExport, 'data_nilai.xlsx');
     }
 }

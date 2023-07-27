@@ -34,15 +34,18 @@ Dashboard
                                     <input type="text" required="required" class="form-control" name="namasiswa"
                                         value="{{ $p->namasiswa}}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="kelas">Kelas</label>
-                                    <input type="text" required="required" class="form-control" name="kelas_id"
-                                        value="{{ $p->kelas_id }}">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="kelas_id">Kelas</label>
+                                        <select class="form-control" name="kelas_id" required>
+                                            <option value="" selected disabled>Pilih Kelas</option>
+                                            @foreach ($kelas as $kelas)
+                                                <option value="{{ $kelas->id }}">{{ $kelas->namakelas }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 <div class="form-group">
                                     <label for="password">Kata Sandi</label>
-                                    <input type="password" required="required" class="form-control" name="password"
-                                        value="{{ $p->password }}">
+                                    <input type="password" required="required" class="form-control" name="password">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12" style="text-align  : right !important;">

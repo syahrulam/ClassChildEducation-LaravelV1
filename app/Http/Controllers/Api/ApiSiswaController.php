@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\GameSiswaKategoriGameNamasiswaView;
 
 class ApiSiswaController extends Controller
 {
@@ -37,5 +38,11 @@ class ApiSiswaController extends Controller
 
     }
 
+    public function lihatnilai()
+    {
+        $gameSiswaData = GameSiswaKategoriGameNamasiswaView::all();
 
+        return response()->json(['data' => $gameSiswaData]);
+
+    }
 }

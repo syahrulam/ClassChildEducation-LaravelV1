@@ -40,5 +40,8 @@ Route::get('/gameplay/{id}/id', [GameplayController::class, 'show']);
 Route::post('/gameplay-prosestambah', [GameplayController::class, 'store']);
 Route::post('/gameplay/{id}/gameplay', [GameplayController::class, 'update']);
 Route::get('/gameplay/{id}/hapus-gameplay', [GameplayController::class, 'destroy']);
+
+
+Route::get('/lihatnilai', [ApiSiswaController::class, 'lihatnilai']);
   
 
