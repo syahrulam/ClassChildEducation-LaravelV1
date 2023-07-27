@@ -37,6 +37,7 @@ Dashboard
                                         <a class="text-dark">NIS<a class='red'> *</a></a>
                                         <input class="form-control input-bb" type="text" name="nis" id="nis"
                                             value="{{ old('nis') }}" />
+                                            <span style="color:red" id="nisError"></span>
                                         <span style="color:red">
                                             @error('nis')
                                                 {{ $message }}
@@ -119,6 +120,24 @@ Dashboard
     })
     var dt = new Date();
     document.getElementById("date").innerHTML = dt.toLocaleDateString('en-UK');
+
+        // Validasi input hanya 4 angka
+        var nisInput = document.getElementById('nis');
+
+    nisInput.addEventListener('input', function () {
+        var value = this.value.trim();
+        var isValid = /^[0-9]{0,4}$/.test(value); // Validasi hanya 4 angka atau kurang
+
+        if (!isValid) {
+            document.getElementById('nisError').textContent = 'Harap masukkan tepat 4 angka.';
+            this.value = value.replace(/[^0-9]/g, ''); // Menghapus karakter selain angka
+            if (this.value.length > 4) {
+                this.value = this.value.slice(0, 4); // Mengambil hanya 4 angka pertama jika lebih dari itu
+            }
+        } else {
+            document.getElementById('nisError').textContent = '';
+        }
+    });
 
 </script>
 @endsection
